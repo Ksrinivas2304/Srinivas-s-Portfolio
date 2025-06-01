@@ -25,81 +25,131 @@ const SkillsSection = () => {
     {
       title: 'Programming Languages',
       skills: [
-        { name: 'Python', level: 90 },
-        { name: 'Java', level: 85 },
-        { name: 'JavaScript', level: 88 }
+        { name: 'Python', logo: '🐍', level: 90 },
+        { name: 'Java', logo: '☕', level: 85 },
+        { name: 'JavaScript', logo: '🟨', level: 88 }
       ],
       color: 'from-blue-500 to-blue-600'
     },
     {
       title: 'Tech Paradigms',
       skills: [
-        { name: 'Object Oriented Programming', level: 85 },
-        { name: 'Data Structures & Algorithms', level: 80 },
-        { name: 'CS Fundamentals', level: 82 }
+        { name: 'OOP', logo: '🔧', level: 85 },
+        { name: 'DSA', logo: '🧮', level: 80 },
+        { name: 'CS Fundamentals', logo: '💻', level: 82 }
       ],
       color: 'from-purple-500 to-purple-600'
     },
     {
       title: 'Web Technologies',
       skills: [
-        { name: 'HTML/CSS', level: 92 },
-        { name: 'Node.js', level: 85 },
-        { name: 'React.js', level: 80 },
-        { name: 'REST API', level: 88 }
+        { name: 'HTML/CSS', logo: '🌐', level: 92 },
+        { name: 'Node.js', logo: '🟢', level: 85 },
+        { name: 'React.js', logo: '⚛️', level: 80 },
+        { name: 'REST API', logo: '🔌', level: 88 }
       ],
       color: 'from-green-500 to-green-600'
     },
     {
       title: 'Database & Cloud',
       skills: [
-        { name: 'MySQL', level: 85 },
-        { name: 'Firebase', level: 80 },
-        { name: 'AWS', level: 82 },
-        { name: 'GCP', level: 75 }
+        { name: 'MySQL', logo: '🗃️', level: 85 },
+        { name: 'Firebase', logo: '🔥', level: 80 },
+        { name: 'AWS', logo: '☁️', level: 82 },
+        { name: 'GCP', logo: '🌤️', level: 75 }
       ],
       color: 'from-indigo-500 to-indigo-600'
     },
     {
       title: 'Frameworks & Tools',
       skills: [
-        { name: 'Spring', level: 78 },
-        { name: 'Bootstrap', level: 88 },
-        { name: 'Tailwind', level: 90 },
-        { name: 'Flask/Django', level: 82 },
-        { name: 'Version Control', level: 85 }
+        { name: 'Spring', logo: '🍃', level: 78 },
+        { name: 'Bootstrap', logo: '🅱️', level: 88 },
+        { name: 'Tailwind', logo: '🎨', level: 90 },
+        { name: 'Flask/Django', logo: '🐍', level: 82 },
+        { name: 'Version Control', logo: '📚', level: 85 }
       ],
       color: 'from-orange-500 to-orange-600'
     }
   ];
 
+  const floatingLogos = [
+    { emoji: '🐍', name: 'Python', delay: 0 },
+    { emoji: '☕', name: 'Java', delay: 1 },
+    { emoji: '🟨', name: 'JavaScript', delay: 2 },
+    { emoji: '⚛️', name: 'React', delay: 3 },
+    { emoji: '🟢', name: 'Node.js', delay: 4 },
+    { emoji: '☁️', name: 'AWS', delay: 5 },
+    { emoji: '🔥', name: 'Firebase', delay: 6 },
+    { emoji: '🗃️', name: 'MySQL', delay: 7 },
+    { emoji: '🍃', name: 'Spring', delay: 8 },
+    { emoji: '🎨', name: 'Tailwind', delay: 9 }
+  ];
+
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Floating Logos Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {floatingLogos.map((logo, index) => (
+          <div
+            key={logo.name}
+            className={`absolute text-4xl opacity-20 dark:opacity-10 animate-bounce`}
+            style={{
+              left: `${10 + (index % 5) * 20}%`,
+              top: `${10 + Math.floor(index / 5) * 30}%`,
+              animationDelay: `${logo.delay * 0.5}s`,
+              animationDuration: `${3 + (index % 3)}s`
+            }}
+          >
+            {logo.emoji}
+          </div>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Technical Skills
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Programming Languages, Frameworks, and Cloud Platforms
             </p>
+            
+            {/* Moving Skills Banner */}
+            <div className="mt-8 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full py-4">
+              <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+                {[...floatingLogos, ...floatingLogos].map((skill, index) => (
+                  <div key={index} className="inline-flex items-center mx-6 text-2xl">
+                    <span className="mr-2">{skill.emoji}</span>
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, categoryIndex) => (
-              <Card key={category.title} className="p-6 border-none shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Card key={category.title} className="p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:scale-105">
                 <h3 className={`text-xl font-semibold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
                   {category.title}
                 </h3>
                 <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-gray-700 font-medium">{skill.name}</span>
-                        <span className="text-gray-500 text-sm">{skill.level}%</span>
+                    <div key={skill.name} className="group">
+                      <div className="flex justify-between items-center mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
+                            {skill.logo}
+                          </span>
+                          <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400 text-sm">{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div
                           className={`bg-gradient-to-r ${category.color} h-2 rounded-full transition-all duration-1000 ease-out`}
                           style={{

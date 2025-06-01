@@ -10,10 +10,11 @@ import CertificationsSection from '../components/CertificationsSection';
 import AchievementsSection from '../components/AchievementsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import ThemeToggle from '../components/ThemeToggle';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Navigation />
       <main>
         <HeroSection />
@@ -26,6 +27,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <ThemeToggle />
     </div>
   );
 };
