@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Code } from 'lucide-react';
 
 const HeroSection = () => {
   const [currentSkill, setCurrentSkill] = useState(0);
@@ -76,21 +76,24 @@ const HeroSection = () => {
           <div className="flex justify-center space-x-6 animate-fade-in delay-700">
             <a 
               href="#" 
-              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 text-lg font-medium"
+              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2 rounded-full hover:bg-blue-50"
+              title="GitHub"
             >
-              GITHUB
+              <Github className="w-6 h-6" />
             </a>
             <a 
               href="#" 
-              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 text-lg font-medium"
+              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2 rounded-full hover:bg-blue-50"
+              title="LinkedIn"
             >
-              LINKEDIN
+              <Linkedin className="w-6 h-6" />
             </a>
             <a 
               href="#" 
-              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 text-lg font-medium"
+              className="text-gray-600 hover:text-blue-600 transition-colors duration-200 p-2 rounded-full hover:bg-blue-50"
+              title="LeetCode"
             >
-              LEETCODE
+              <Code className="w-6 h-6" />
             </a>
           </div>
         </div>

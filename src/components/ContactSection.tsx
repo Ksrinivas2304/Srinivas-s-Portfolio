@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
+import { Github, Linkedin, Code } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -172,21 +173,24 @@ const ContactSection = () => {
                 <div className="flex space-x-4">
                   <a 
                     href="#" 
-                    className="px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg font-semibold hover:from-gray-800 hover:to-black transition-all duration-200"
+                    className="p-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg hover:from-gray-800 hover:to-black transition-all duration-200"
+                    title="GitHub"
                   >
-                    GITHUB
+                    <Github className="w-5 h-5" />
                   </a>
                   <a 
                     href="#" 
-                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                    className="p-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                    title="LinkedIn"
                   >
-                    LINKEDIN
+                    <Linkedin className="w-5 h-5" />
                   </a>
                   <a 
                     href="#" 
-                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-200"
+                    className="p-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200"
+                    title="LeetCode"
                   >
-                    LEETCODE
+                    <Code className="w-5 h-5" />
                   </a>
                 </div>
               </Card>

@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Github, Linkedin, Code } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -30,9 +30,27 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-blue-400">Connect</h4>
               <div className="flex space-x-4 mb-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">GITHUB</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">LINKEDIN</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">LEETCODE</a>
+                <a 
+                  href="#" 
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
+                  title="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a 
+                  href="#" 
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a 
+                  href="#" 
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
+                  title="LeetCode"
+                >
+                  <Code className="w-5 h-5" />
+                </a>
               </div>
               <a 
                 href="#" 
