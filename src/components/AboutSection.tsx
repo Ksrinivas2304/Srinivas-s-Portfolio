@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import { ImageSwiper } from '@/components/ui/image-swiper';
 
 const AboutSection = () => {
+  const imageUrls = "https://img.freepik.com/premium-photo/3d-cartoon_975306-1.jpg?w=2000,https://img.freepik.com/premium-photo/3d-cartoon-boy-avatar_113255-5540.jpg,https://th.bing.com/th/id/OIP.OmBLyKbo8iixJ2SeS12xxwHaE7?w=626&h=417&rs=1&pid=ImgDetMain,https://thumbs.dreamstime.com/b/animated-academic-cheerful-cartoon-scholar-301088562.jpg,https://img.freepik.com/premium-psd/3d-cute-young-business-man-character-generative-ai_43614-1027.jpg,https://img.freepik.com/premium-photo/arafed-cartoon-man-suit-tie-standing-with-his-hands-his-hips_988987-15581.jpg";
+
   return (
     <section id="about" className="bg-white dark:bg-gray-900">
       <ContainerScroll
@@ -46,16 +49,13 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="relative z-10">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face" 
-                  alt="Kusumanchi Srinivas - Full Stack Developer"
-                  className="rounded-2xl shadow-2xl w-full max-w-md mx-auto object-cover"
-                  draggable={false}
-                />
-              </div>
-              <div className="absolute top-4 left-4 w-full h-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl -z-10"></div>
+            <div className="relative flex items-center justify-center">
+              <ImageSwiper 
+                images={imageUrls} 
+                cardWidth={200} 
+                cardHeight={280} 
+                className="mx-auto"
+              />
             </div>
           </div>
         </div>
