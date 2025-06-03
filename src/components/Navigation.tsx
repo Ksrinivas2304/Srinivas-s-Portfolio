@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Download, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +13,28 @@ const Navigation = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // IntersectionObserver for active section
+  useEffect(() => {
+    const sectionIds = [
+      'home', 'about', 'skills', 'experience', 'projects', 'certifications', 'contact'
+    ];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    if (sections.length === 0) return;
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length > 0) {
+          // Pick the one closest to the top
+          const topMost = visible.reduce((a, b) => (a.boundingClientRect.top < b.boundingClientRect.top ? a : b));
+          setActiveSection(topMost.target.id);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    sections.forEach(section => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -24,6 +46,7 @@ const Navigation = () => {
   };
 
   const navItems = [
+    { label: 'KUSUMANCHI SRINIVAS', id: 'KUSUMANCHI SRINIVAS' },
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
@@ -34,10 +57,8 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-4">
+    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
+      <div className="max-w-6xl w-full mx-auto bg-transparent backdrop-blur-md rounded-2xl shadow-lg pointer-events-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 mx-auto">
@@ -45,7 +66,7 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                className={`text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium ${activeSection === item.id ? 'glow-nav' : ''}`}
               >
                 {item.label}
               </button>
@@ -73,7 +94,7 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors duration-200"
+                  className={`block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors duration-200 ${activeSection === item.id ? 'glow-nav' : ''}`}
                 >
                   {item.label}
                 </button>
@@ -91,5 +112,12 @@ const Navigation = () => {
     </nav>
   );
 };
+
+// Add glow effect for nav items
+// In your global CSS (e.g., index.css):
+// .glow-nav {
+//   text-shadow: 0 0 8px #6366f1, 0 0 16px #a21caf;
+//   color: #6366f1 !important;
+// }
 
 export default Navigation;
