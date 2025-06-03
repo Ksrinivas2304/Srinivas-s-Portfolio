@@ -3,7 +3,7 @@ import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import { ImageSwiper } from '@/components/ui/image-swiper';
 
 const AboutSection = () => {
-  const imageUrls = "https://img.freepik.com/premium-photo/3d-cartoon_975306-1.jpg?w=2000,https://img.freepik.com/premium-photo/3d-cartoon-boy-avatar_113255-5540.jpg,https://th.bing.com/th/id/OIP.OmBLyKbo8iixJ2SeS12xxwHaE7?w=626&h=417&rs=1&pid=ImgDetMain,https://thumbs.dreamstime.com/b/animated-academic-cheerful-cartoon-scholar-301088562.jpg,https://img.freepik.com/premium-psd/3d-cute-young-business-man-character-generative-ai_43614-1027.jpg,https://img.freepik.com/premium-photo/arafed-cartoon-man-suit-tie-standing-with-his-hands-his-hips_988987-15581.jpg";
+  const imageUrls = "public\Photos\ChatGPT Image Apr 3, 2025, 07_11_52 PM.jpg,/Photos/WhatsApp Image 2025-04-03 at 11.23.36_4fc37d27.jpg,/Photos/WhatsApp Image 2024-04-06 at 15.55.22_ac487fd4.jpg";
 
   return (
     <section id="about" className="bg-white dark:bg-gray-900 pb-8">
@@ -51,8 +51,8 @@ const AboutSection = () => {
             <div className="relative flex items-center justify-center">
               <ImageSwiper 
                 images={imageUrls} 
-                cardWidth={200} 
-                cardHeight={280} 
+                cardWidth={250} 
+                cardHeight={300} 
                 className="mx-auto"
               />
             </div>
