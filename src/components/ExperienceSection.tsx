@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 
@@ -8,6 +7,7 @@ const ExperienceSection = () => {
       title: 'Full Stack Developer Intern',
       company: 'Anedium Pvt Ltd',
       period: 'Sep 2024 - Nov 2024',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png',
       description: [
         'Developing a career recommendation platform using the MERN stack (MongoDB, Express, React, Node.js) to provide personalized career guidance, job opportunities, and aptitude tests tailored to global educational backgrounds.',
         'Collaborating with cross-functional teams to integrate real-time career trend analysis, user feedback mechanisms, and interactive tools aimed at enhancing user engagement and satisfaction.'
@@ -18,6 +18,7 @@ const ExperienceSection = () => {
       title: 'AWS Cloud Computing Intern',
       company: 'Blackbucks Pvt Ltd',
       period: 'Jul 2023 - Aug 2023',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
       description: [
         'Gained hands-on experience in AWS services, including EC2, S3, and RDS, while assisting in the deployment and maintenance of cloud-based solutions.',
         'Engineered a high-performance web application by integrating Amazon Polly, optimizing translation processes, increasing operational efficiency by 30%, and reducing user wait times by 15%.'
@@ -47,7 +48,16 @@ const ExperienceSection = () => {
               {experiences.map((exp, index) => (
                 <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Timeline dot */}
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-blue-500 rounded-full transform md:-translate-x-2"></div>
+                  {exp.logo ? (
+                    <img
+                      src={exp.logo}
+                      alt={exp.company + ' logo'}
+                      className="absolute left-4 md:left-1/2 w-9 h-9 object-contain bg-white rounded-full shadow transform -translate-x-1/2 md:-translate-x-1/2 border-black-500 border-2"
+                      style={{ zIndex: 2 }}
+                    />
+                  ) : (
+                    <div className="absolute left-4 md:left-1/2 w-6 h-6 bg-blue-400 rounded-full transform -translate-x-1/2 md:-translate-x-1/2"></div>
+                  )}
 
                   <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'} ml-12 md:ml-0`}>
                     <Card className="p-8 border-none shadow-lg hover:shadow-xl transition-shadow duration-300">

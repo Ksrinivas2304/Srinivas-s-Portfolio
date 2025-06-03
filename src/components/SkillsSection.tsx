@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 
@@ -115,54 +114,19 @@ const SkillsSection = () => {
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Programming Languages, Frameworks, and Cloud Platforms
             </p>
-            
             {/* Moving Skills Banner */}
             <div className="mt-8 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full py-4">
-              <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
-                {[...floatingLogos, ...floatingLogos].map((skill, index) => (
-                  <div key={index} className="inline-flex items-center mx-6 text-2xl">
+              <div className="flex animate-scroll-infinite whitespace-nowrap">
+                {[...floatingLogos, ...floatingLogos, ...floatingLogos].map((skill, index) => (
+                  <span key={index} className="inline-flex items-center mx-6 text-2xl align-middle">
                     <span className="mr-2">{skill.emoji}</span>
                     <span className="text-gray-700 dark:text-gray-300 font-medium">
                       {skill.name}
                     </span>
-                  </div>
+                  </span>
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
-              <Card key={category.title} className="p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:scale-105">
-                <h3 className={`text-xl font-semibold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
-                  {category.title}
-                </h3>
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name} className="group">
-                      <div className="flex justify-between items-center mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
-                            {skill.logo}
-                          </span>
-                          <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
-                        </div>
-                        <span className="text-gray-500 dark:text-gray-400 text-sm">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div
-                          className={`bg-gradient-to-r ${category.color} h-2 rounded-full transition-all duration-1000 ease-out`}
-                          style={{
-                            width: isVisible ? `${skill.level}%` : '0%',
-                            transitionDelay: `${(categoryIndex * 200) + (skillIndex * 100)}ms`
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            ))}
           </div>
         </div>
       </div>
@@ -171,3 +135,12 @@ const SkillsSection = () => {
 };
 
 export default SkillsSection;
+
+// NOTE: The marquee CSS animation must be placed in your global CSS file (e.g., src/index.css or src/App.css):
+// @keyframes marquee {
+//   0% { transform: translateX(0); }
+//   100% { transform: translateX(-100%); }
+// }
+// .marquee-track {
+//   animation: marquee 20s linear infinite;
+// }
