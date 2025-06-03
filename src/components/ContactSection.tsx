@@ -172,21 +172,21 @@ const ContactSection = () => {
                 <h3 className="text-xl font-bold mb-6 text-gray-900">Connect on Social Media</h3>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://github.com/KusumanchiSrinivas" 
                     className="p-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg hover:from-gray-800 hover:to-black transition-all duration-200"
                     title="GitHub"
                   >
                     <Github className="w-5 h-5" />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/in/kusumanchi-srinivas/" 
                     className="p-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
                     title="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.leetcode.com/ksrinivas2304" 
                     className="p-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200"
                     title="LeetCode"
                   >
