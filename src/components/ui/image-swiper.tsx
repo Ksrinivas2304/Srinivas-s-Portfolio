@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 interface ImageSwiperProps {
@@ -21,9 +20,42 @@ export const ImageSwiper: React.FC<ImageSwiperProps> = ({
   const animationFrameId = useRef<number | null>(null);
 
   const imageList = images.split(',').map(img => img.trim()).filter(img => img);
+  const [loadedImages, setLoadedImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Reset loaded images when imageList changes
+    setLoadedImages([]);
+  }, [images]);
+
+  const handleImageLoad = (src: string) => {
+    setLoadedImages(prev => prev.includes(src) ? prev : [...prev, src]);
+  };
+
+  const handleImageError = (src: string) => {
+    setLoadedImages(prev => prev.filter(img => img !== src));
+  };
+
+  // Only show cards for images that have loaded
+  const visibleImages = imageList.filter(img => loadedImages.includes(img));
+
+  // If no images have loaded yet, show all (to allow loading)
+  const cardsToShow = loadedImages.length === 0 ? imageList : visibleImages;
+
   const [cardOrder, setCardOrder] = useState<number[]>(() =>
     Array.from({ length: imageList.length }, (_, i) => i)
   );
+
+  // Auto-swiper: advance to next image every 3 seconds
+  useEffect(() => {
+    if (cardsToShow.length <= 1) return;
+    const interval = setInterval(() => {
+      setCardOrder(prev => {
+        if (prev.length === 0) return prev;
+        return [...prev.slice(1), prev[0]];
+      });
+    }, 1200);
+    return () => clearInterval(interval);
+  }, [cardsToShow.length]);
 
   const getDurationFromCSS = useCallback((
     variableName: string,
@@ -179,19 +211,19 @@ export const ImageSwiper: React.FC<ImageSwiperProps> = ({
         '--card-perspective': '700px',
         '--card-z-offset': '12px',
         '--card-y-offset': '7px',
-        '--card-max-z-index': imageList.length.toString(),
+        '--card-max-z-index': cardsToShow.length.toString(),
         '--card-swap-duration': '0.3s',
       } as React.CSSProperties}
     >
-      {cardOrder.map((originalIndex, displayIndex) => (
+      {cardOrder.filter(i => i < cardsToShow.length).map((originalIndex, displayIndex) => (
         <article
-          key={`${imageList[originalIndex]}-${originalIndex}`}
+          key={`${cardsToShow[originalIndex]}-${originalIndex}`}
           className="image-card absolute cursor-grab active:cursor-grabbing
                      place-self-center border border-slate-400 rounded-xl
                      shadow-md overflow-hidden will-change-transform"
           style={{
             '--i': (displayIndex + 1).toString(),
-            zIndex: imageList.length - displayIndex,
+            zIndex: cardsToShow.length - displayIndex,
             width: cardWidth,
             height: cardHeight,
             transform: `perspective(var(--card-perspective))
@@ -202,10 +234,12 @@ export const ImageSwiper: React.FC<ImageSwiperProps> = ({
           } as React.CSSProperties}
         >
           <img
-            src={imageList[originalIndex]}
+            src={cardsToShow[originalIndex]}
             alt={`Swiper image ${originalIndex + 1}`}
             className="w-full h-full object-cover select-none pointer-events-none"
             draggable={false}
+            onLoad={() => handleImageLoad(cardsToShow[originalIndex])}
+            onError={() => handleImageError(cardsToShow[originalIndex])}
           />
         </article>
       ))}

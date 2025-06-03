@@ -115,3 +115,8 @@
 .animate-scroll-infinite {
   animation: scroll-infinite 25s linear infinite;
 }
+
+.glow-nav {
+  text-shadow: 0 0 8px #6366f1, 0 0 16px #a21caf;
+  color: #6366f1 !important;
+}
