@@ -84,7 +84,7 @@ const HeroSection = () => {
 
             <div className="flex justify-center space-x-8 animate-fade-in delay-800">
               <a 
-                href="https://github.com" 
+                href="https://github.com/Ksrinivas2304" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
@@ -95,7 +95,7 @@ const HeroSection = () => {
                 </div>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/kusumanchi-srinivas" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
@@ -106,7 +106,7 @@ const HeroSection = () => {
                 </div>
               </a>
               <a 
-                href="https://leetcode.com" 
+                href="https://leetcode.com/Ksrinivas2304" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
