@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
+import { HighlightGroup, HighlighterItem } from '@/components/ui/highlighter';
 
 const SkillsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -87,49 +88,53 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
-      {/* Floating Logos Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {floatingLogos.map((logo, index) => (
-          <div
-            key={logo.name}
-            className={`absolute text-4xl opacity-20 dark:opacity-10 animate-bounce`}
-            style={{
-              left: `${10 + (index % 5) * 20}%`,
-              top: `${10 + Math.floor(index / 5) * 30}%`,
-              animationDelay: `${logo.delay * 0.5}s`,
-              animationDuration: `${3 + (index % 3)}s`
-            }}
-          >
-            {logo.emoji}
+      <HighlightGroup>
+        <HighlighterItem>
+          {/* Floating Logos Background */}
+          <div className="absolute inset-0 pointer-events-none">
+            {floatingLogos.map((logo, index) => (
+              <div
+                key={logo.name}
+                className={`absolute text-4xl opacity-20 dark:opacity-10 animate-bounce`}
+                style={{
+                  left: `${10 + (index % 5) * 20}%`,
+                  top: `${10 + Math.floor(index / 5) * 30}%`,
+                  animationDelay: `${logo.delay * 0.5}s`,
+                  animationDuration: `${3 + (index % 3)}s`
+                }}
+              >
+                {logo.emoji}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="container mx-auto px-4 -mb-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Technical Skills
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Programming Languages, Frameworks, and Cloud Platforms
-            </p>
-            {/* Moving Skills Banner */}
-            <div className="mt-8 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full py-4">
-              <div className="flex animate-scroll-infinite whitespace-nowrap">
-                {[...floatingLogos, ...floatingLogos, ...floatingLogos].map((skill, index) => (
-                  <span key={index} className="inline-flex items-center mx-6 text-2xl align-middle">
-                    <span className="mr-2">{skill.emoji}</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">
-                      {skill.name}
-                    </span>
-                  </span>
-                ))}
+          <div className="container mx-auto px-4 -mb-6 relative z-10">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Technical Skills
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                  Programming Languages, Frameworks, and Cloud Platforms
+                </p>
+                {/* Moving Skills Banner */}
+                <div className="mt-8 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full py-4">
+                  <div className="flex animate-scroll-infinite whitespace-nowrap">
+                    {[...floatingLogos, ...floatingLogos, ...floatingLogos].map((skill, index) => (
+                      <span key={index} className="inline-flex items-center mx-6 text-2xl align-middle">
+                        <span className="mr-2">{skill.emoji}</span>
+                        <span className="text-gray-700 dark:text-gray-300 font-medium">
+                          {skill.name}
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </HighlighterItem>
+      </HighlightGroup>
     </section>
   );
 };
