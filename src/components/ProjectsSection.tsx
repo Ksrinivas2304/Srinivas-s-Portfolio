@@ -1,9 +1,9 @@
+
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Code, ExternalLink, TrendingUp } from 'lucide-react';
-import { HighlightGroup, HighlighterItem } from '@/components/ui/highlighter';
 
 const ProjectsSection = () => {
   const projects = [
@@ -35,93 +35,89 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <HighlightGroup>
-        <HighlighterItem>
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Featured Projects
-                </h2>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                  Web Development, Machine Learning, and AWS Solutions
-                </p>
-              </div>
-
-              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                {projects.map((project, index) => (
-                  <Card key={index} className="group border-none shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                    <div className="relative">
-                      <img 
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`}></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <h3 className="text-white text-xl font-bold text-center px-4">{project.title}</h3>
-                      </div>
-                    </div>
-
-                    <div className="p-6">
-                      <p className="text-gray-700 leading-relaxed mb-4 text-sm line-clamp-3">
-                        {project.shortDescription}
-                      </p>
-
-                      <div className="space-y-4 mb-6">
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-800 mb-2">Technologies:</h4>
-                          <div className="flex flex-wrap gap-1">
-                            {project.technologies.map((tech, techIndex) => (
-                              <Badge 
-                                key={techIndex}
-                                variant="secondary"
-                                className="text-xs"
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-800 mb-2">Key Achievements:</h4>
-                          <div className="space-y-1">
-                            {project.achievements.map((achievement, achIndex) => (
-                              <div key={achIndex} className="flex items-center text-xs text-gray-600">
-                                <TrendingUp className="w-3 h-3 mr-1 text-green-600" />
-                                {achievement}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex gap-2">
-                        <Button 
-                          size="sm"
-                          className={`flex-1 bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}
-                        >
-                          <Code className="w-4 h-4 mr-1" />
-                          Code
-                        </Button>
-                        <Button 
-                          size="sm"
-                          variant="outline"
-                          className="flex-1"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-1" />
-                          Demo
-                        </Button>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Web Development, Machine Learning, and AWS Solutions
+            </p>
           </div>
-        </HighlighterItem>
-      </HighlightGroup>
+
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <Card key={index} className="group border-none shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <img 
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`}></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <h3 className="text-white text-xl font-bold text-center px-4">{project.title}</h3>
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-gray-700 leading-relaxed mb-4 text-sm line-clamp-3">
+                    {project.shortDescription}
+                  </p>
+
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-800 mb-2">Technologies:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.map((tech, techIndex) => (
+                          <Badge 
+                            key={techIndex}
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-800 mb-2">Key Achievements:</h4>
+                      <div className="space-y-1">
+                        {project.achievements.map((achievement, achIndex) => (
+                          <div key={achIndex} className="flex items-center text-xs text-gray-600">
+                            <TrendingUp className="w-3 h-3 mr-1 text-green-600" />
+                            {achievement}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <Button 
+                      size="sm"
+                      className={`flex-1 bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}
+                    >
+                      <Code className="w-4 h-4 mr-1" />
+                      Code
+                    </Button>
+                    <Button 
+                      size="sm"
+                      variant="outline"
+                      className="flex-1"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-1" />
+                      Demo
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
