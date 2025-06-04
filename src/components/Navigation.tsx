@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Menu, X } from 'lucide-react';
+import { Download, Link, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
@@ -71,10 +71,12 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-              <Download className="w-4 h-4 mr-2" />
-              Download Resume
-            </Button>
+            <a href="/Photos/Kusumanchi_Srinivas.pdf" download="Kusumanchi_Srinivas.pdf">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                <Download className="w-4 h-4 mr-2" />
+                Download Resume
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,10 +102,12 @@ const Navigation = () => {
                 </button>
               ))}
               <div className="px-4 py-2">
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
-                </Button>
+                <a href="/Photos/Kusumanchi_Srinivas.pdf" download="Kusumanchi_Srinivas.pdf">
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Resume
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
