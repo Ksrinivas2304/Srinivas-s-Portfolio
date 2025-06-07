@@ -14,8 +14,9 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -24,9 +25,37 @@ const ContactSection = () => {
       return;
     }
 
-    // Simulate form submission
-    toast.success('Message sent successfully! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'f48632a9-285e-4d00-b210-34a713018610',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'Portfolio Contact Form',
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success('Message sent successfully! I\'ll get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast.error('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,28 +66,28 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
               Get in Touch
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
               Connect with Kusumanchi Srinivas for collaboration, job opportunities, or inquiries
             </p>
-            <p className="text-xl font-semibold text-blue-600">
+            <p className="text-xl font-semibold text-primary">
               Let's build something amazing together!
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="p-8 border-none shadow-lg">
+            <Card className="p-8 border-border shadow-lg bg-card">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Name *
                     </label>
                     <Input
@@ -70,10 +99,11 @@ const ContactSection = () => {
                       className="w-full"
                       placeholder="Your Name"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Email *
                     </label>
                     <Input
@@ -85,12 +115,13 @@ const ContactSection = () => {
                       className="w-full"
                       placeholder="your.email@example.com"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
                     Subject
                   </label>
                   <Input
@@ -101,11 +132,12 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     className="w-full"
                     placeholder="Subject of your message"
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message *
                   </label>
                   <Textarea
@@ -116,35 +148,37 @@ const ContactSection = () => {
                     className="w-full h-32"
                     placeholder="Your message here..."
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3"
+                  className="w-full bg-gradient-to-r from-primary to-purple-600 hover:from-blue-700 hover:to-purple-700 text-primary-foreground py-3"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </Card>
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <Card className="p-8 border-none shadow-lg bg-gradient-to-br from-blue-50 to-purple-50">
-                <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <Card className="p-8 border-border shadow-lg bg-gradient-to-br from-muted/50 to-accent/50">
+                <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                   Contact Information
                 </h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-purple-500 rounded-full flex items-center justify-center text-primary-foreground font-bold mr-4">
                       📧
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Email</p>
+                      <p className="text-sm text-muted-foreground">Email</p>
                       <a 
                         href="mailto:ksrinivas2304@gmail.com" 
-                        className="text-lg font-semibold text-blue-600 hover:text-purple-600 transition-colors"
+                        className="text-lg font-semibold text-primary hover:text-purple-600 transition-colors"
                       >
                         ksrinivas2304@gmail.com
                       </a>
@@ -152,14 +186,14 @@ const ContactSection = () => {
                   </div>
 
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-primary rounded-full flex items-center justify-center text-primary-foreground font-bold mr-4">
                       📱
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Phone</p>
+                      <p className="text-sm text-muted-foreground">Phone</p>
                       <a 
                         href="tel:+919052290400" 
-                        className="text-lg font-semibold text-blue-600 hover:text-purple-600 transition-colors"
+                        className="text-lg font-semibold text-primary hover:text-purple-600 transition-colors"
                       >
                         +91 9052290400
                       </a>
@@ -168,8 +202,8 @@ const ContactSection = () => {
                 </div>
               </Card>
 
-              <Card className="p-8 border-none shadow-lg">
-                <h3 className="text-xl font-bold mb-6 text-gray-900">Connect on Social Media</h3>
+              <Card className="p-8 border-border shadow-lg bg-card">
+                <h3 className="text-xl font-bold mb-6 text-foreground">Connect on Social Media</h3>
                 <div className="flex space-x-4">
                   <a 
                     href="https://github.com/KusumanchiSrinivas" 
@@ -180,7 +214,7 @@ const ContactSection = () => {
                   </a>
                   <a 
                     href="https://www.linkedin.com/in/kusumanchi-srinivas/" 
-                    className="p-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                    className="p-3 bg-gradient-to-r from-primary to-blue-700 text-primary-foreground rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
                     title="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
