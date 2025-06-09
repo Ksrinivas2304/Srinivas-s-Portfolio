@@ -46,8 +46,20 @@ const Navigation = () => {
     }
   };
 
-  const navItems = [
-    { label: 'KUSUMANCHI SRINIVAS', id: 'KUSUMANCHI SRINIVAS' },
+  // Desktop navigation items (with full name)
+  const desktopNavItems = [
+    { label: 'KUSUMANCHI SRINIVAS', id: 'home' },
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Certifications', id: 'certifications' },
+    { label: 'Contact', id: 'contact' }
+  ];
+
+  // Mobile navigation items (essential items only)
+  const mobileNavItems = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
@@ -73,7 +85,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 mx-auto">
-            {navItems.map((item) => (
+            {desktopNavItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -102,8 +114,8 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 rounded-b-xl">
-            <div className="py-3 space-y-1 max-h-80 overflow-y-auto">
-              {navItems.map((item) => (
+            <div className="py-3 space-y-1">
+              {mobileNavItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
