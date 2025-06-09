@@ -73,17 +73,25 @@ const Navigation = () => {
     <nav className="fixed top-2 sm:top-4 left-2 right-2 sm:left-0 sm:right-0 z-50 flex justify-center pointer-events-none">
       <div className="max-w-6xl w-full mx-auto bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-lg pointer-events-auto px-3 sm:px-4">
         <div className="flex items-center justify-between h-14 sm:h-16">
-          {/* Logo/Brand - Mobile */}
-          <div className="md:hidden">
+          {/* Logo/Brand - Mobile (only hamburger menu, no nav items) */}
+          <div className="md:hidden flex items-center justify-between w-full">
             <button
               onClick={() => scrollToSection('home')}
               className="text-lg font-bold text-gray-900 dark:text-white"
             >
               KS
             </button>
+            
+            {/* Mobile Menu Button */}
+            <button
+              className="p-2 text-gray-700 dark:text-gray-300"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Full navigation bar */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 mx-auto">
             {desktopNavItems.map((item) => (
               <button
@@ -101,17 +109,9 @@ const Navigation = () => {
               </Button>
             </a>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-gray-700 dark:text-gray-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Only appears when hamburger is clicked */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 rounded-b-xl">
             <div className="py-3 space-y-1">
