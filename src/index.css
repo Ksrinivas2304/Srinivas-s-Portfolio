@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -110,10 +111,10 @@
 
 @keyframes scroll-infinite {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+  100% { transform: translateX(-25%); }
 }
 .animate-scroll-infinite {
-  animation: scroll-infinite 25s linear infinite;
+  animation: scroll-infinite 15s linear infinite;
 }
 
 .glow-nav {

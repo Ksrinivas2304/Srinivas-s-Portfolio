@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Code, ChevronRight } from 'lucide-react';
@@ -49,11 +50,11 @@ const HeroSection = () => {
               </h1>
 
               <div className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 animate-fade-in delay-400">
-                <span className="inline-block min-w-[300px] text-left">
+                <div className="flex justify-center">
                   <span className="text-blue-600 dark:text-blue-400 transition-all duration-700 ease-in-out">
                     {skills[currentSkill]}
                   </span>
-                </span>
+                </div>
               </div>
             </div>
 

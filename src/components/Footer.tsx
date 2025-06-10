@@ -1,14 +1,15 @@
+
 import React from 'react';
 import { Github, Linkedin, Code } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-primary via-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
                 Kusumanchi Srinivas
               </h3>
               <p className="text-gray-400 leading-relaxed">
@@ -18,7 +19,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
+              <h4 className="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
               <div className="space-y-2">
                 <a href="#about" className="block text-gray-400 hover:text-white transition-colors">About</a>
                 <a href="#skills" className="block text-gray-400 hover:text-white transition-colors">Skills</a>
@@ -28,24 +29,24 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-blue-400">Connect</h4>
+              <h4 className="text-lg font-semibold mb-4 text-primary">Connect</h4>
               <div className="flex space-x-4 mb-4">
                 <a 
-                  href="#" 
+                  href="https://github.com/KusumanchiSrinivas" 
                   className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
                   title="GitHub"
                 >
                   <Github className="w-5 h-5" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/kusumanchi-srinivas/" 
                   className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
                   title="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.leetcode.com/ksrinivas2304" 
                   className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
                   title="LeetCode"
                 >
@@ -55,7 +56,7 @@ const Footer = () => {
               <a 
                 href="/Photos/Kusumanchi_Srinivas.pdf"
                 download="Kusumanchi_Srinivas.pdf"
-                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200"
+                className="inline-block bg-gradient-to-r from-primary to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200"
               >
                 Download Resume
               </a>
