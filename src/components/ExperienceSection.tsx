@@ -8,7 +8,7 @@ const ExperienceSection = () => {
       title: 'Full Stack Developer Intern',
       company: 'Anedium Pvt Ltd',
       period: 'Sep 2024 - Nov 2024',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png',
+      logo: '/Photos/Anedium.png',
       description: [
         'Developing a career recommendation platform using the MERN stack (MongoDB, Express, React, Node.js) to provide personalized career guidance, job opportunities, and aptitude tests tailored to global educational backgrounds.',
         'Collaborating with cross-functional teams to integrate real-time career trend analysis, user feedback mechanisms, and interactive tools aimed at enhancing user engagement and satisfaction.'
@@ -19,7 +19,7 @@ const ExperienceSection = () => {
       title: 'AWS Cloud Computing Intern',
       company: 'Blackbucks Pvt Ltd',
       period: 'Jul 2023 - Aug 2023',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+      logo: '/Photos/BlackBucks.png',
       description: [
         'Gained hands-on experience in AWS services, including EC2, S3, and RDS, while assisting in the deployment and maintenance of cloud-based solutions.',
         'Engineered a high-performance web application by integrating Amazon Polly, optimizing translation processes, increasing operational efficiency by 30%, and reducing user wait times by 15%.'
