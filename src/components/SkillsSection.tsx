@@ -118,7 +118,7 @@ const SkillsSection = () => {
             {/* Moving Skills Banner */}
             <div className="mt-8 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full py-4">
               <div className="flex animate-scroll-infinite whitespace-nowrap">
-                {[...floatingLogos, ...floatingLogos, ...floatingLogos].map((skill, index) => (
+                {[...floatingLogos, ...floatingLogos, ...floatingLogos, ...floatingLogos].map((skill, index) => (
                   <span key={index} className="inline-flex items-center mx-6 text-2xl align-middle">
                     <span className="mr-2">{skill.emoji}</span>
                     <span className="text-gray-700 dark:text-gray-300 font-medium">
