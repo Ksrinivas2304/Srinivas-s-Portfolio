@@ -29,7 +29,7 @@ const SkillsSection = () => {
         { name: 'Java', logo: '☕', level: 85 },
         { name: 'JavaScript', logo: '🟨', level: 88 }
       ],
-      color: 'from-green-600 to-green-500'
+      color: 'from-blue-500 to-blue-600'
     },
     {
       title: 'Tech Paradigms',
@@ -38,7 +38,7 @@ const SkillsSection = () => {
         { name: 'DSA', logo: '🧮', level: 80 },
         { name: 'CS Fundamentals', logo: '💻', level: 82 }
       ],
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-purple-500 to-purple-600'
     },
     {
       title: 'Web Technologies',
@@ -48,7 +48,7 @@ const SkillsSection = () => {
         { name: 'React.js', logo: '⚛️', level: 80 },
         { name: 'REST API', logo: '🔌', level: 88 }
       ],
-      color: 'from-emerald-600 to-green-500'
+      color: 'from-green-500 to-green-600'
     },
     {
       title: 'Database & Cloud',
@@ -58,7 +58,7 @@ const SkillsSection = () => {
         { name: 'AWS', logo: '☁️', level: 82 },
         { name: 'GCP', logo: '🌤️', level: 75 }
       ],
-      color: 'from-teal-600 to-green-600'
+      color: 'from-indigo-500 to-indigo-600'
     },
     {
       title: 'Frameworks & Tools',
@@ -69,7 +69,7 @@ const SkillsSection = () => {
         { name: 'Flask/Django', logo: '🐍', level: 82 },
         { name: 'Version Control', logo: '📚', level: 85 }
       ],
-      color: 'from-green-500 to-teal-500'
+      color: 'from-orange-500 to-orange-600'
     }
   ];
 
@@ -87,7 +87,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-black via-gray-900 to-gray-800 dark:from-black dark:to-gray-900 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Floating Logos Background */}
       <div className="absolute inset-0 pointer-events-none">
         {floatingLogos.map((logo, index) => (
@@ -109,19 +109,19 @@ const SkillsSection = () => {
       <div className="container mx-auto px-4 -mb-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Technical Skills
             </h2>
-            <p className="text-lg text-gray-300 dark:text-gray-200 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Programming Languages, Frameworks, and Cloud Platforms
             </p>
             {/* Moving Skills Banner */}
-            <div className="mt-8 overflow-hidden bg-gray-800/50 dark:bg-gray-700/50 backdrop-blur-sm rounded-full py-4">
+            <div className="mt-8 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full py-4">
               <div className="flex animate-scroll-infinite whitespace-nowrap">
                 {[...floatingLogos, ...floatingLogos, ...floatingLogos, ...floatingLogos].map((skill, index) => (
                   <span key={index} className="inline-flex items-center mx-6 text-2xl align-middle">
                     <span className="mr-2">{skill.emoji}</span>
-                    <span className="text-gray-200 dark:text-gray-100 font-medium">
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">
                       {skill.name}
                     </span>
                   </span>
