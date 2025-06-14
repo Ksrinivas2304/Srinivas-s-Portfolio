@@ -65,11 +65,10 @@ const CertificationsSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
               <Card 
-                key={cert.title}
-                className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll bg-white dark:bg-gray-800"
+                key={`cert-${index}`}
+                className="group p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll bg-white dark:bg-gray-800"
                 style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  willChange: 'transform'
+                  animationDelay: `${index * 0.1}s`
                 }}
                 tabIndex={0}
                 role="article"
@@ -87,7 +86,7 @@ const CertificationsSection = () => {
                   
                   <h3 
                     id={`cert-title-${index}`}
-                    className={`text-xl font-bold mb-3 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}
+                    className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100"
                   >
                     {cert.title}
                   </h3>

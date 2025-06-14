@@ -69,11 +69,10 @@ const AchievementsSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {achievements.map((achievement, index) => (
               <Card 
-                key={achievement.title} 
-                className="group p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center animate-on-scroll bg-white dark:bg-gray-800"
+                key={`achievement-${index}`}
+                className="group p-8 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center animate-on-scroll bg-white dark:bg-gray-800"
                 style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  willChange: 'transform'
+                  animationDelay: `${index * 0.1}s`
                 }}
                 tabIndex={0}
                 role="article"
