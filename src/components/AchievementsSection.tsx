@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const AchievementsSection = () => {
+  const sectionRef = useScrollAnimation();
+
   const achievements = [
     {
       title: 'HackerRank 5-Star Rating',
@@ -42,34 +45,62 @@ const AchievementsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section 
+      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-500"
+      aria-labelledby="achievements-heading"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div 
+            ref={sectionRef}
+            className="text-center mb-16 animate-on-scroll"
+          >
+            <h2 
+              id="achievements-heading"
+              className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            >
               Achievements & Leadership
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Impactful Contributions and Recognition
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="group p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <Card 
+                key={achievement.title} 
+                className="group p-8 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center animate-on-scroll bg-white dark:bg-gray-800"
+                style={{ 
+                  animationDelay: `${index * 0.1}s`,
+                  willChange: 'transform'
+                }}
+                tabIndex={0}
+                role="article"
+                aria-labelledby={`achievement-title-${index}`}
+                aria-describedby={`achievement-desc-${index}`}
+              >
                 <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${achievement.color} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   {achievement.icon}
                 </div>
                 
-                <div className={`text-3xl font-bold mb-2 bg-gradient-to-r ${achievement.color} bg-clip-text text-transparent`}>
+                <div 
+                  className={`text-3xl font-bold mb-2 bg-gradient-to-r ${achievement.color} bg-clip-text text-transparent`}
+                >
                   {achievement.stat}
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 
+                  id={`achievement-title-${index}`}
+                  className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+                >
                   {achievement.title}
                 </h3>
                 
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p 
+                  id={`achievement-desc-${index}`}  
+                  className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm"
+                >
                   {achievement.description}
                 </p>
               </Card>
