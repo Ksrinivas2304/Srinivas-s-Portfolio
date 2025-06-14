@@ -11,10 +11,13 @@ import AchievementsSection from '../components/AchievementsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import ThemeToggle from '../components/ThemeToggle';
+import ScrollProgress from '../components/ScrollProgress';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
+      <ScrollProgress />
+      
       {/* Skip to main content link for accessibility */}
       <a 
         href="#main-content" 
