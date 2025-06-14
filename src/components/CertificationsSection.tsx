@@ -66,7 +66,7 @@ const CertificationsSection = () => {
             {certifications.map((cert, index) => (
               <Card 
                 key={`cert-${index}`}
-                className="group p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll bg-white dark:bg-gray-800"
+                className="group p-6 border-2 border-gray-300 dark:border-gray-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll bg-white dark:bg-gray-800 hover:border-blue-400 dark:hover:border-blue-500"
                 style={{ 
                   animationDelay: `${index * 0.1}s`
                 }}
@@ -86,7 +86,7 @@ const CertificationsSection = () => {
                   
                   <h3 
                     id={`cert-title-${index}`}
-                    className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100"
+                    className="text-xl font-bold mb-3 text-gray-900 dark:text-white"
                   >
                     {cert.title}
                   </h3>

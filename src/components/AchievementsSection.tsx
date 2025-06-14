@@ -70,7 +70,7 @@ const AchievementsSection = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={`achievement-${index}`}
-                className="group p-8 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center animate-on-scroll bg-white dark:bg-gray-800"
+                className="group p-8 border-2 border-gray-300 dark:border-gray-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center animate-on-scroll bg-white dark:bg-gray-800 hover:border-purple-400 dark:hover:border-purple-500"
                 style={{ 
                   animationDelay: `${index * 0.1}s`
                 }}
@@ -91,7 +91,7 @@ const AchievementsSection = () => {
                 
                 <h3 
                   id={`achievement-title-${index}`}
-                  className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+                  className="text-xl font-bold text-gray-900 dark:text-white mb-4"
                 >
                   {achievement.title}
                 </h3>
