@@ -42,7 +42,7 @@ const CertificationsSection = () => {
   return (
     <section 
       id="certifications" 
-      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500"
+      className="py-20 bg-white dark:bg-gray-900"
       aria-labelledby="certifications-heading"
     >
       <div className="container mx-auto px-4">
@@ -66,10 +66,10 @@ const CertificationsSection = () => {
             {certifications.map((cert, index) => (
               <Card 
                 key={cert.title}
-                className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll bg-white dark:bg-gray-800"
+                className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover-lift animate-on-scroll focus-ring"
                 style={{ 
                   animationDelay: `${index * 0.1}s`,
-                  willChange: 'transform'
+                  transform: 'translateZ(0)'
                 }}
                 tabIndex={0}
                 role="article"
