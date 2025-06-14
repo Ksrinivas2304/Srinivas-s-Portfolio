@@ -7,16 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import PerformanceMonitor from "./components/PerformanceMonitor";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      gcTime: 1000 * 60 * 30, // 30 minutes
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -24,7 +16,6 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <PerformanceMonitor />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

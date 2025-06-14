@@ -1,11 +1,8 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const CertificationsSection = () => {
-  const sectionRef = useScrollAnimation();
-
   const certifications = [
     {
       title: 'CCNA Certifications',
@@ -40,62 +37,31 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section 
-      id="certifications" 
-      className="py-20 bg-white dark:bg-gray-900"
-      aria-labelledby="certifications-heading"
-    >
+    <section id="certifications" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div 
-            ref={sectionRef}
-            className="text-center mb-16 animate-on-scroll"
-          >
-            <h2 
-              id="certifications-heading"
-              className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-            >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Certifications & Achievements
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Enhancing Technical Proficiency Through Continuous Learning
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Enhancing Technical Proficiency
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
-              <Card 
-                key={cert.title}
-                className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover-lift animate-on-scroll focus-ring"
-                style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  transform: 'translateZ(0)'
-                }}
-                tabIndex={0}
-                role="article"
-                aria-labelledby={`cert-title-${index}`}
-                aria-describedby={`cert-desc-${index}`}
-              >
+              <Card key={index} className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="text-center">
-                  <div 
-                    className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${cert.color} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                    role="img"
-                    aria-label={`${cert.title} icon`}
-                  >
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${cert.color} flex items-center justify-center text-2xl shadow-lg`}>
                     {cert.icon}
                   </div>
                   
-                  <h3 
-                    id={`cert-title-${index}`}
-                    className={`text-xl font-bold mb-3 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}
-                  >
+                  <h3 className={`text-xl font-bold mb-3 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}>
                     {cert.title}
                   </h3>
                   
-                  <p 
-                    id={`cert-desc-${index}`}
-                    className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm"
-                  >
+                  <p className="text-gray-700 leading-relaxed text-sm">
                     {cert.description}
                   </p>
                 </div>
