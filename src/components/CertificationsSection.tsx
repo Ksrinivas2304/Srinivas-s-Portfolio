@@ -42,7 +42,7 @@ const CertificationsSection = () => {
   return (
     <section 
       id="certifications" 
-      className="py-20 bg-white dark:bg-gray-900"
+      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500"
       aria-labelledby="certifications-heading"
     >
       <div className="container mx-auto px-4">
@@ -65,11 +65,10 @@ const CertificationsSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
               <Card 
-                key={cert.title}
-                className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover-lift animate-on-scroll focus-ring"
+                key={`cert-${index}`}
+                className="group p-6 border-2 border-gray-300 dark:border-gray-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll bg-white dark:bg-gray-800 hover:border-blue-400 dark:hover:border-blue-500"
                 style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  transform: 'translateZ(0)'
+                  animationDelay: `${index * 0.1}s`
                 }}
                 tabIndex={0}
                 role="article"
@@ -87,7 +86,7 @@ const CertificationsSection = () => {
                   
                   <h3 
                     id={`cert-title-${index}`}
-                    className={`text-xl font-bold mb-3 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}
+                    className="text-xl font-bold mb-3 text-gray-900 dark:text-white"
                   >
                     {cert.title}
                   </h3>
