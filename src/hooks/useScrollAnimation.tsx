@@ -1,8 +1,8 @@
 
 import { useEffect, useRef } from 'react';
 
-export const useScrollAnimation = <T extends HTMLElement = HTMLDivElement>(options = {}) => {
-  const elementRef = useRef<T>(null);
+export const useScrollAnimation = (options = {}) => {
+  const elementRef = useRef<HTMLElement>(null);
   
   useEffect(() => {
     const element = elementRef.current;
