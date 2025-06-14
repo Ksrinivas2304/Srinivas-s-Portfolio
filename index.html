@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,14 +7,25 @@
     <title>Kusumanchi Srinivas | Full Stack Developer | React, Node.js, AWS Portfolio</title>
     <meta name="description" content="Explore the portfolio of Kusumanchi Srinivas, a skilled Full Stack Developer with expertise in MERN stack, cloud computing, and machine learning. View projects and contact for collaboration." />
     <meta name="author" content="Kusumanchi Srinivas" />
-    <link rel="icon" href="Photos\ChatGPT Image Apr 3, 2025, 07_11_52 PM.jpg" type="image/png">
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//api.web3forms.com">
+    
+    <!-- Favicon with proper fallbacks -->
+    <link rel="icon" href="Photos/ChatGPT Image Apr 3, 2025, 07_11_52 PM.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="Photos/ChatGPT Image Apr 3, 2025, 07_11_52 PM.jpg">
+    
     <meta name="keywords" content="Full Stack Developer, MERN Stack, AWS, Cloud Computing, React, Node.js, JavaScript, Python, Web Development" />
+    <meta name="theme-color" content="#6366f1" />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Kusumanchi Srinivas | Full Stack Developer Portfolio" />
     <meta property="og:description" content="Skilled Full Stack Developer specializing in MERN stack, Node.js, React, and AWS cloud solutions. Discover innovative projects and expertise in web development." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://kusumanchi-srinivas-portfolio.com" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -22,7 +34,7 @@
     <meta name="twitter:description" content="Skilled Full Stack Developer specializing in MERN stack, AWS, and machine learning. View innovative projects and technical expertise." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,26 +43,53 @@
       "jobTitle": "Full Stack Developer",
       "description": "Skilled Full Stack Developer specializing in MERN stack, cloud computing, and machine learning",
       "url": "https://kusumanchi-srinivas-portfolio.com",
+      "image": "https://lovable.dev/opengraph-image-p98pqg.png",
+      "email": "ksrinivas2304@gmail.com",
+      "telephone": "+919052290400",
       "sameAs": [
-        "https://github.com/kusumanchi-srinivas",
+        "https://github.com/KusumanchiSrinivas",
         "https://linkedin.com/in/kusumanchi-srinivas",
-        "https://leetcode.com/kusumanchi-srinivas"
+        "https://leetcode.com/ksrinivas2304"
       ],
-      "knowsAbout": ["Full Stack Development", "MERN Stack", "AWS", "Cloud Computing", "Machine Learning", "React", "Node.js", "JavaScript", "Python"]
+      "knowsAbout": ["Full Stack Development", "MERN Stack", "AWS", "Cloud Computing", "Machine Learning", "React", "Node.js", "JavaScript", "Python"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Educational Institution"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "CCNA Certifications",
+          "description": "Networking Fundamentals, Switching, Routing, Wireless Essentials"
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "name": "Java Full Stack Certification",
+          "description": "Wipro TalentNext Digital Skills Readiness Program"
+        }
+      ]
     }
     </script>
   </head>
 
   <body>
-    <header>
-      <!-- You can add a site-wide navigation or logo here for SEO -->
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50">
+      Skip to main content
+    </a>
+    
+    <header role="banner">
+      <!-- Site-wide navigation will be inserted here -->
     </header>
-    <main id="main-content" tabindex="-1">
+    
+    <main id="main-content" role="main" tabindex="-1">
       <div id="root"></div>
     </main>
-    <footer>
-      <!-- You can add contact info, copyright, or social links here -->
+    
+    <footer role="contentinfo">
+      <!-- Contact info, copyright, and social links will be inserted here -->
     </footer>
+    
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
